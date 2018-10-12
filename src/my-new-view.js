@@ -1,5 +1,6 @@
 /* Load the PolymerElement base class and html helper function */
 import { PolymerElement, html } from '@polymer/polymer/polymer-element.js';
+import '@polymer/paper-checkbox/paper-checkbox.js';
 /* Load shared styles. All view elements use these styles */
 import './shared-styles.js';
 
@@ -18,6 +19,7 @@ class MyNewView extends PolymerElement {
       <div class="card">
         <div class="circle">1</div>
         <h1>New View</h1>
+        <paper-checkbox>Ready to deploy!</paper-checkbox>
         <p>New view!</p>
       </div>
     `;
