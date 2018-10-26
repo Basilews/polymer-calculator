@@ -26,6 +26,7 @@ class Calculator extends PolymerElement {
           max-width: 288px;
           width: 100%;
           height: 40px;
+          margin: 0 auto;
           padding: 6px 8px;
           font-size: 20px;
           background-color: white;
@@ -35,7 +36,7 @@ class Calculator extends PolymerElement {
         .pad {
           max-width: 288px;
           width: 100%;
-          margin-top: 16px;
+          margin: 16px auto 0;
         }
 
         .row {
