@@ -17,108 +17,138 @@ class Calculator extends PolymerElement {
       <style include="shared-styles">
         :host {
           display: block;
-          padding: 10px;
-        }
-        .pad {
-          max-width: 220px;
+          max-width: 320px;
           margin: 0 auto;
+          padding: 16px;
         }
+
+        .operations {
+          max-width: 288px;
+          width: 100%;
+          height: 40px;
+          padding: 6px 8px;
+          font-size: 20px;
+          background-color: white;
+          border: 1px solid black;
+        }
+
+        .pad {
+          max-width: 288px;
+          width: 100%;
+          margin-top: 16px;
+        }
+
         .row {
           display: flex;
         }
+
         .cell {
           position: relative;
-          width: 48px;
-          height: 48px;
+          width: 72px;
+          height: 72px;
           display: flex;
           justify-content: space-between;
           align-items: center;
+          background-color: white;
+          font-size: 20px;
+          text-decoration: none;
+          outline: none;
           border: 1px solid black;
         }
+
         .cell:hover {
           cursor: pointer;
         }
+
+        .cell:last-child {
+          background-color: #cdd5f1;
+        }
+
+        .cell:active {
+          box-shadow: inset 0 5px 5px rgba(0,0,0,.2);
+        }
+
         .item {
           margin: 0 auto;
         }
       </style>
-
+      <div class="operations">0</div>
       <div class="pad">
         <div class="row">
-          <div class="cell">
+          <button class="cell">
             <span class="item"><</span>
-          </div>
-          <div class="cell">
+          </button>
+          <button class="cell">
             <span class="item">(</span>
-          </div>
-          <div class="cell">
+          </button>
+          <button class="cell">
             <span class="item">)</span>
-          </div>
-          <div class="cell">
+          </button>
+          <button class="cell">
             <span class="item">÷</span>
-          </div>
+          </button>
         </div>
 
         <div class="row">
-          <div class="cell">
+          <button class="cell">
             <span class="item">7</span>
-          </div>
-          <div class="cell">
+          </button>
+          <button class="cell">
             <span class="item">8</span>
-          </div>
-          <div class="cell">
+          </button>
+          <button class="cell">
             <span class="item">9</span>
-          </div>
-          <div class="cell">
+          </button>
+          <button class="cell">
             <span class="item">x</span>
-          </div>
+          </button>
         </div>
 
         <div class="row">
-          <div class="cell">
+          <button class="cell">
             <span class="item">4</span>
-          </div>
-          <div class="cell">
+          </button>
+          <button class="cell">
             <span class="item">5</span>
-          </div>
-          <div class="cell">
+          </button>
+          <button class="cell">
             <span class="item">6</span>
-          </div>
-          <div class="cell">
+          </button>
+          <button class="cell">
             <span class="item">-</span>
-          </div>
+          </button>
         </div>
 
         <div class="row">
-          <div class="cell">
+          <button class="cell">
             <span class="item">1</span>
-          </div>
-          <div class="cell">
+          </button>
+          <button class="cell">
             <span class="item">2</span>
-          </div>
-          <div class="cell">
+          </button>
+          <button class="cell">
             <span class="item">3</span>
-          </div>
-          <div class="cell">
+          </button>
+          <button class="cell">
             <span class="item">+</span>
-          </div>
+          </button>
         </div>
 
         <div class="row">
-          <div class="cell">
+          <button class="cell">
             <span class="item">0</span>
-          </div>
-          <div class="cell">
+          </button>
+          <button class="cell">
             <span class="item">.</span>
-          </div>
-          <div class="cell">
+          </button>
+          <button class="cell">
             <div class="cell-plus">+</div>
             <div class="cell-slash">/</div>
             <div class="cell-minus">-</div>
-          </div>
-          <div class="cell">
+            </button>
+          <button class="cell">
             <span class="item">=</span>
-          </div>
+          </button>
         </div>
       </div>
     `;
