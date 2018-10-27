@@ -22,15 +22,31 @@ class Calculator extends PolymerElement {
           padding: 16px;
         }
 
-        .operations {
+        .display {
+          display: flex;
+          flex-direction: column;
+          justify-content: space-between;
           max-width: 288px;
           width: 100%;
-          height: 40px;
           margin: 0 auto;
           padding: 6px 8px;
           font-size: 20px;
           background-color: white;
           border: 1px solid black;
+        }
+
+        .operations {
+          height: 30px;
+          white-space: nowrap;
+          overflow: scroll;
+          direction: rtl;
+        }
+
+        .result {
+          height: 30px;
+          white-space: no-wrap;
+          overflow: scroll;
+          direction: rtl;
         }
 
         .pad {
@@ -41,6 +57,10 @@ class Calculator extends PolymerElement {
 
         .row {
           display: flex;
+        }
+
+        .row.isFirst .cell:not(:last-child) {
+          background-color: #ffcf3e;
         }
 
         .cell {
@@ -73,86 +93,110 @@ class Calculator extends PolymerElement {
           margin: 0 auto;
         }
       </style>
-      <div class="operations">0</div>
+      <div class="display">
+        <div class="operations">[[input]]</div>
+        <div class="result"></div>
+      </div>
       <div class="pad">
-        <div class="row">
-          <button class="cell">
-            <span class="item"><</span>
+        <div class="row isFirst">
+          <button class="cell" on-click="handleClick">
+            <span class="item">C</span>
           </button>
-          <button class="cell">
+          <button class="cell" on-click="handleClick">
             <span class="item">(</span>
           </button>
-          <button class="cell">
+          <button class="cell" on-click="handleClick">
             <span class="item">)</span>
           </button>
-          <button class="cell">
+          <button class="cell" on-click="handleClick">
             <span class="item">÷</span>
           </button>
         </div>
 
         <div class="row">
-          <button class="cell">
+          <button class="cell" on-click="handleClick">
             <span class="item">7</span>
           </button>
-          <button class="cell">
+          <button class="cell" on-click="handleClick">
             <span class="item">8</span>
           </button>
-          <button class="cell">
+          <button class="cell" on-click="handleClick">
             <span class="item">9</span>
           </button>
-          <button class="cell">
-            <span class="item">x</span>
+          <button class="cell" on-click="handleClick">
+            <span class="item">×</span>
           </button>
         </div>
 
         <div class="row">
-          <button class="cell">
+          <button class="cell" on-click="handleClick">
             <span class="item">4</span>
           </button>
-          <button class="cell">
+          <button class="cell" on-click="handleClick">
             <span class="item">5</span>
           </button>
-          <button class="cell">
+          <button class="cell" on-click="handleClick">
             <span class="item">6</span>
           </button>
-          <button class="cell">
+          <button class="cell" on-click="handleClick">
             <span class="item">-</span>
           </button>
         </div>
 
         <div class="row">
-          <button class="cell">
+          <button class="cell" on-click="handleClick">
             <span class="item">1</span>
           </button>
-          <button class="cell">
+          <button class="cell" on-click="handleClick">
             <span class="item">2</span>
           </button>
-          <button class="cell">
+          <button class="cell" on-click="handleClick">
             <span class="item">3</span>
           </button>
-          <button class="cell">
+          <button class="cell" on-click="handleClick">
             <span class="item">+</span>
           </button>
         </div>
 
         <div class="row">
-          <button class="cell">
+          <button class="cell" on-click="handleClick">
             <span class="item">0</span>
           </button>
-          <button class="cell">
+          <button class="cell" on-click="handleClick">
             <span class="item">.</span>
           </button>
-          <button class="cell">
+          <button class="cell" on-click="handleClick">
             <div class="cell-plus">+</div>
             <div class="cell-slash">/</div>
             <div class="cell-minus">-</div>
             </button>
-          <button class="cell">
+          <button class="cell" on-click="handleClick">
             <span class="item">=</span>
           </button>
         </div>
       </div>
     `;
+  }
+
+  static get properties () {
+    return {
+      input: {
+        type: String,
+        value: '',
+      }
+    };
+  }
+
+  handleClick(e) {
+    // document.querySelector('.operations').innerHTML += e.target.innerHTML;
+    // console.log()
+    this.input += e.target.innerText.trim();
+    // debugger;
+    // document.querySelector('.cell').click(event => {
+    //   const thingClicked = this.innerHTML;
+    //   console.log("you clicked: ", thingClicked)
+    //    $("#currentValue").html(thingClicked)
+    //  })
   }
 }
 
