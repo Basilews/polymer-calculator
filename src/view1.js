@@ -63,6 +63,10 @@ class Calculator extends PolymerElement {
           background-color: #ffcf3e;
         }
 
+        .row + .row .cell {
+          border-top: 0;
+        }
+
         .cell {
           position: relative;
           width: 72px;
@@ -87,6 +91,10 @@ class Calculator extends PolymerElement {
 
         .cell:active {
           box-shadow: inset 0 5px 5px rgba(0,0,0,.2);
+        }
+
+        .cell + .cell {
+          border-left: 0;
         }
 
         .item {
