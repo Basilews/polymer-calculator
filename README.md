@@ -1,4 +1,4 @@
-JavaScript Calculator based on web components ([Polymer.js])(https://www.polymer-project.org)
+JavaScript Calculator based on [web components](https://www.webcomponents.org/) ([Polymer.js])(https://www.polymer-project.org)
 
 ### TODO:
 
@@ -6,9 +6,10 @@ JavaScript Calculator based on web components ([Polymer.js])(https://www.polymer
 - [x] Simple calculations
 - [ ] Autocalculations
 - [ ] Long press on remove button
-- [ ] Errors handling
 - [ ] Manual input
-- [ ] Desktop version
+- [ ] Errors handling
+- [ ] Desktop version & UI enhancements
 - [ ] Data binding
 - [ ] Charts
+- [ ] Extend functionality
 - [ ] Final refactoring
