@@ -62,6 +62,7 @@ class Calculator extends PolymerElement {
           text-decoration: none;
           outline: none;
           border: 1px solid black;
+          user-select: none;
         }
 
         .cell:hover {
