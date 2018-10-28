@@ -92,7 +92,12 @@ class Calculator extends PolymerElement {
 
         .cell.clear {
           position: relative;
-          background: linear-gradient(135deg, #ffcf3e, #cdd5f1);
+          background-color: #ffcf3e;
+        }
+
+        .cell.clear:active {
+          background-color: #cdd5f1;
+          transition: background-color 1s ease-out;
         }
 
         .clearSign {
@@ -135,7 +140,14 @@ class Calculator extends PolymerElement {
           <button class="cell" on-click="handleClick">
             <span class="item">%</span>
           </button>
-          <button class="cell clear" on-click="deletePrevious">
+          <button
+            class="cell clear"
+            on-click="onClick"
+            on-mousedown="startTimer"
+            on-touchstart="startTimer"
+            on-touchend="cancelTimer"
+            on-touchcancel="cancelTimer"
+            on-touchleave="cancelTimer" >
             <span class="item clearSign">C</span>
             <span class="item slashSign">/</span>
             <span class="item deleteSign">❮</span>
@@ -214,6 +226,15 @@ class Calculator extends PolymerElement {
       result: {
         type: String,
         value: '',
+      },
+      longpress: {
+        type: Boolean,
+        value: false,
+      },
+      timer: {
+        value: function() {
+          this.clear();
+        },
       }
     };
   }
@@ -222,9 +243,41 @@ class Calculator extends PolymerElement {
     this.input += e.target.innerText.toString().trim();
   }
 
-  deletePrevious() {
+  onClick() {
     if (!this.input) return;
+
+    if (this.timer !== null) {
+      clearTimeout(this.timer);
+      this.timer = null;
+    }
+
+    if (this.longpress) {
+      return false;
+    }
+    clearTimeout(this.timer);
     this.input = this.input.slice(0, -1);
+  }
+
+  startTimer(e) {
+    if (!this.input || e.type === 'click') {
+      return;
+    }
+
+    this.longpress = false;
+
+    this.timer = setTimeout(() => {
+      this.longpress = true;
+      this.clear();
+    }, 900);
+
+    return false;
+  }
+
+  cancelTimer() {
+    if (this.timer !== null) {
+      clearTimeout(this.timer);
+      this.timer = null;
+    }
   }
 
   clear() {
