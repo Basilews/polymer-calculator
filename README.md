@@ -1,4 +1,4 @@
-JavaScript Calculator based on [web components](https://www.webcomponents.org/) ([Polymer.js](https://www.polymer-project.org)]
+JavaScript Calculator based on [web components](https://www.webcomponents.org/) ([Polymer.js](https://www.polymer-project.org))
 
 ### TODO:
 
