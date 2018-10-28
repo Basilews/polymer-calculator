@@ -14,4 +14,5 @@ JavaScript Calculator based on [web components](https://www.webcomponents.org/) 
 - [ ] Data binding
 - [ ] Charts
 - [ ] Extend functionality
+- [ ] Solve calculating floats problem
 - [ ] Final refactoring

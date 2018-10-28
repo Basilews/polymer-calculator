@@ -304,11 +304,16 @@ class Calculator extends PolymerElement {
     const input = this.input.replace(/×/g, '*').replace(/÷/g, '/');
 
     try {
-      this.result = eval(input);
+      const result = parseFloat(eval(input), 10);
+      this.result = result % 1 === 0 ? result : this.roundToTen(result);
     } catch(e) {
       this.result = 'Bad expression';
       this.error = true;
     }
+  }
+
+  roundToTen(num) {
+    return Math.round(num + "e+10")  + "e-10";
   }
 }
 
