@@ -255,6 +255,8 @@ class Calculator extends PolymerElement {
     }
 
     this.input += e.target.innerText.toString().trim();
+
+    this.calculate(true);
   }
 
   onClick() {
@@ -298,7 +300,7 @@ class Calculator extends PolymerElement {
     this.input = this.result = '';
   }
 
-  calculate() {
+  calculate(auto = false) {
     if (!this.input) return;
 
     const input = this.input.replace(/×/g, '*').replace(/÷/g, '/');
@@ -307,8 +309,11 @@ class Calculator extends PolymerElement {
       const result = parseFloat(eval(input), 10);
       this.result = result % 1 === 0 ? result : this.roundToTen(result);
     } catch(e) {
-      this.result = 'Bad expression';
-      this.error = true;
+      if (auto) return;
+        else {
+          this.result = 'Bad expression';
+          this.error = true;
+        }
     }
   }
 
