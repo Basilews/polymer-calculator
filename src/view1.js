@@ -315,10 +315,8 @@ class Calculator extends PolymerElement {
       this.result = result % 1 === 0 ? result : this.roundToTen(result);
     } catch(e) {
       if (auto) return;
-        else {
-          this.result = 'Bad expression';
-          this.error = true;
-        }
+      this.result = 'Bad expression';
+      this.error = true;
     }
   }
 
