@@ -5,11 +5,11 @@ JavaScript Calculator based on [web components](https://www.webcomponents.org/) 
 - [x] Buttons Layout & Styles
 - [x] Simple calculations
 - [x] Long press on remove button
+- [x] Errors handling
 - [ ] Percent logic
 - [ ] Autocalculations
 - [ ] Add history page
 - [ ] Manual input
-- [ ] Errors handling
 - [ ] Desktop version & UI enhancements
 - [ ] Data binding
 - [ ] Charts
