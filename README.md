@@ -6,7 +6,7 @@ JavaScript Calculator based on [web components](https://www.webcomponents.org/) 
 - [x] Simple calculations
 - [x] Long press on remove button
 - [x] Errors handling
-- [ ] Autocalculation
+- [x] Autocalculation
 - [ ] Improve autocalculation
 - [ ] Prevent user from some faults
 - [ ] Percent logic
