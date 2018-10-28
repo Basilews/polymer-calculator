@@ -21,6 +21,7 @@ class Calculator extends PolymerElement {
           margin: 0 auto;
           padding: 6px 8px;
           font-size: 20px;
+          letter-spacing: 1px;
           background-color: white;
           border: 1px solid black;
         }
@@ -31,6 +32,11 @@ class Calculator extends PolymerElement {
           white-space: nowrap;
           overflow: scroll;
           text-align: right;
+          font-weight: 600;
+        }
+
+        .result {
+          color: grey;
         }
 
         .pad {
@@ -44,6 +50,7 @@ class Calculator extends PolymerElement {
         }
 
         .row.isFirst .cell:not(:last-child) {
+          font-weight: 400;
           background-color: #ffcf3e;
         }
 
@@ -59,6 +66,7 @@ class Calculator extends PolymerElement {
           align-items: center;
           background-color: white;
           font-size: 20px;
+          font-weight: 600;
           text-decoration: none;
           outline: none;
           border: 1px solid black;
@@ -70,6 +78,7 @@ class Calculator extends PolymerElement {
         }
 
         .cell:last-child {
+          font-weight: 400;
           background-color: #cdd5f1;
         }
 
@@ -79,6 +88,32 @@ class Calculator extends PolymerElement {
 
         .cell + .cell {
           border-left: 0;
+        }
+
+        .cell.clear {
+          position: relative;
+          background: linear-gradient(135deg, #ffcf3e, #cdd5f1);
+        }
+
+        .clearSign {
+          position: absolute;
+          top: 16px;
+          left: 20px;
+          font-weight: 600;
+        }
+
+        .slashSign {
+          position: absolute;
+          top: 23px;
+          left: 34px;
+          transform: rotate(20deg);
+          font-weight: 600;
+        }
+
+        .deleteSign {
+          position: absolute;
+          bottom: 15px;
+          right: 20px;
         }
 
         .item {
@@ -91,9 +126,6 @@ class Calculator extends PolymerElement {
       </div>
       <div class="pad">
         <div class="row isFirst">
-          <button class="cell" on-click="deletePrevious">
-            <span class="item"><</span>
-          </button>
           <button class="cell" on-click="handleClick">
             <span class="item">(</span>
           </button>
@@ -101,7 +133,12 @@ class Calculator extends PolymerElement {
             <span class="item">)</span>
           </button>
           <button class="cell" on-click="handleClick">
-            <span class="item">÷</span>
+            <span class="item">%</span>
+          </button>
+          <button class="cell clear" on-click="deletePrevious">
+            <span class="item clearSign">C</span>
+            <span class="item slashSign">/</span>
+            <span class="item deleteSign">❮</span>
           </button>
         </div>
 
@@ -116,7 +153,7 @@ class Calculator extends PolymerElement {
             <span class="item">9</span>
           </button>
           <button class="cell" on-click="handleClick">
-            <span class="item">×</span>
+            <span class="item">÷</span>
           </button>
         </div>
 
@@ -131,7 +168,7 @@ class Calculator extends PolymerElement {
             <span class="item">6</span>
           </button>
           <button class="cell" on-click="handleClick">
-            <span class="item">-</span>
+            <span class="item">×</span>
           </button>
         </div>
 
@@ -146,7 +183,7 @@ class Calculator extends PolymerElement {
             <span class="item">3</span>
           </button>
           <button class="cell" on-click="handleClick">
-            <span class="item">+</span>
+            <span class="item">-</span>
           </button>
         </div>
 
@@ -157,11 +194,11 @@ class Calculator extends PolymerElement {
           <button class="cell" on-click="handleClick">
             <span class="item">.</span>
           </button>
-          <button class="cell" on-click="handleClick">
-            <span class="item">+/-</span>
-            </button>
           <button class="cell" on-click="calculate">
             <span class="item">=</span>
+          </button>
+          <button class="cell" on-click="handleClick">
+            <span class="item">+</span>
           </button>
         </div>
       </div>
