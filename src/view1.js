@@ -256,7 +256,11 @@ class Calculator extends PolymerElement {
 
     this.input += e.target.innerText.toString().trim();
 
-    this.calculate(true);
+    const options = {
+      auto: true,
+    }
+
+    this.calculate(options);
   }
 
   onClick() {
@@ -270,6 +274,7 @@ class Calculator extends PolymerElement {
     if (this.longpress) {
       return false;
     }
+
     clearTimeout(this.timer);
     this.input = this.input.slice(0, -1);
   }
@@ -300,7 +305,7 @@ class Calculator extends PolymerElement {
     this.input = this.result = '';
   }
 
-  calculate(auto = false) {
+  calculate({ auto }) {
     if (!this.input) return;
 
     const input = this.input.replace(/×/g, '*').replace(/÷/g, '/');
